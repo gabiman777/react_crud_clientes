@@ -1,5 +1,5 @@
 # React CRUD Clientes
-Crud clientes con datos locales simulados con json-server.
+Crud clientes con datos locales simulados con json-server
 
 - Lista Clientes
 - Agregar un cliente sólo con su nombre

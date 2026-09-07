@@ -35,6 +35,15 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "rhpm4DBQ1WQ"
+    },
+    {
+      "nombre": "Gabriel",
+      "email": "gabperez.exito@gmail.com",
+      "telefono": "",
+      "empresa": "Opinator",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "n36UYU0mLvQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

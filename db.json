@@ -28,15 +28,6 @@
       "fechaAlta": "2026-09-07"
     },
     {
-      "nombre": "Diana",
-      "email": "dianatorales114@gmail.com",
-      "telefono": "0974299000",
-      "empresa": "LITL",
-      "activo": true,
-      "fechaAlta": "2026-09-07",
-      "id": "rhpm4DBQ1WQ"
-    },
-    {
       "nombre": "Gabriel",
       "email": "gabperez.exito@gmail.com",
       "telefono": "+198202020202",
@@ -92,15 +83,6 @@
       "id": "0PYthelLs44"
     },
     {
-      "nombre": "prueba",
-      "email": "ggg@gmail.com",
-      "telefono": "",
-      "empresa": "",
-      "activo": true,
-      "fechaAlta": "2026-09-07",
-      "id": "GyElQl6ZBpg"
-    },
-    {
       "nombre": "Dario Cáceres",
       "email": "dario@gmail.com",
       "telefono": "",
@@ -108,6 +90,42 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "BMwgHi8DFjM"
+    },
+    {
+      "nombre": "Diana Torales",
+      "email": "dianatorales114@gmail.com",
+      "telefono": "98989899898",
+      "empresa": "LITL",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "3ApQvbmegfw"
+    },
+    {
+      "nombre": "ggg",
+      "email": "gggg@gmail.com",
+      "telefono": "",
+      "empresa": "",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "2Lydjma22zY"
+    },
+    {
+      "nombre": "Miguela",
+      "email": "miguela@gmail.com",
+      "telefono": "0974399999",
+      "empresa": "Carapeguá SRL",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "XxqW5g7fSBA"
+    },
+    {
+      "nombre": "Moraima Fonseca",
+      "email": "moraima@gmail.com",
+      "telefono": "+584121234567",
+      "empresa": "Naguarabit",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "RxBriesKIjg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

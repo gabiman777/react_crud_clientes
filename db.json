@@ -1,0 +1,22 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Ana López",
+      "email": "ana@acme.com",
+      "telefono": "0981-111-222",
+      "empresa": "ACME",
+      "activo": true,
+      "fechaAlta": "2026-09-01"
+    },
+    {
+      "id": "2",
+      "nombre": "Beto Martínez",
+      "email": "beto@globex.com",
+      "telefono": "0982-333-444",
+      "empresa": "Globex",
+      "activo": false,
+      "fechaAlta": "2026-09-03"
+    }
+  ]
+}

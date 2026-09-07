@@ -37,8 +37,16 @@ function App() {
     }
   }
 
-  function handleBorrarCliente(id) {
-    setClientes(clientes.filter(c => c.id !== id))
+  //delete one client by id
+  async function handleBorrarCliente(id) {
+    try {
+      const res = await fetch(`${API}/${id}`, { method: 'DELETE' })
+      if (!res.ok) throw new Error(`HTTP ${res.status}: no se pudo borrar el cliente`)
+      setClientes((cli) => cli.filter((c) => c.id !== id))
+    }
+    catch(e){
+      setError(e.message)
+    }
   }
 
   //update a client
@@ -61,6 +69,7 @@ function App() {
     }
   }
 
+  //refresh the list of clients from API when the component mounts
   useEffect(() => {
     // Fetch the list of clients from the API when the component mounts
     /*v1. forma directa, sin otra funcion

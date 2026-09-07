@@ -1,16 +1,13 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import ClienteForm from './components/ClienteForm.jsx'
 import ClienteList from './components/ClienteList.jsx'
 
-const CLIENTES_INICIALES =  [
-  { id: '1', nombre: 'Ana López', email: 'ana@acme.com', telefono: '0981-111-222', empresa: 'ACME', activo: true, fechaAlta: '2026-09-01' },
-  { id: '2', nombre: 'Beto Martínez', email: 'beto@globex.com', telefono: '0982-333-444', empresa: 'Globex', activo: false, fechaAlta: '2026-09-03' },
-]
+const API = 'http://localhost:3001/clientes'
 
 
 function App() {
 
-  const [clientes, setClientes] = useState(CLIENTES_INICIALES)
+  const [clientes, setClientes] = useState([]) //arranca con lista de clientes vacía
 
   function handleCrearCliente(nuevoCliente) {
     //new client's id is generated random mode by browser as an uuid 
@@ -20,6 +17,14 @@ function App() {
   function handleBorrarCliente(id) {
     setClientes(clientes.filter(c => c.id !== id))
   }
+
+  useEffect(() => {
+    // Fetch the list of clients from the API when the component mounts
+    fetch(API)
+      .then(response => response.json())
+      .then(data => setClientes(data))
+      .catch(error => console.error('Error fetching clients:', error));
+  }, []); // Empty dependency array means this runs once on mount
 
   return (
     <>

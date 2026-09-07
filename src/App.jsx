@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import ClienteForm from './components/ClienteForm.jsx'
 import ClienteList from './components/ClienteList.jsx'
+import './App.css'
 
 const API = 'http://localhost:3001/clientes'
 

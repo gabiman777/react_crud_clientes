@@ -13,11 +13,12 @@ function App() {
   const [clientes, setClientes] = useState(CLIENTES_INICIALES)
 
   function handleCrearCliente(nuevoCliente) {
+    //new client's id is generated random mode by browser as an uuid 
     setClientes([...clientes, {...nuevoCliente, id: crypto.randomUUID()}])
   }
 
   function handleBorrarCliente(id) {
-    setClientes(clientes.filter(cliente => cliente.id !== id))
+    setClientes(clientes.filter(c => c.id !== id))
   }
 
   return (

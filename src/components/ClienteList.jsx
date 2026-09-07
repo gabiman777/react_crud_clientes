@@ -1,11 +1,12 @@
-import ClienteRow from './ClienteRow'
+import ClienteRow from './ClienteRow.jsx'
 
+//← recibe: clientes, onBorrarCliente, que es una función que se ejecutará cuando se borre un cliente
 function ClienteList({ clientes, onBorrarCliente }) {
 
     if (clientes.length === 0) {
         return <p>No hay clientes registrados.</p>
     }
-    
+
     return (
         <table>
             <thead>

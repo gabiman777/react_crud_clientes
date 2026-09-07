@@ -29,34 +29,46 @@ function ClienteForm({onCrearCliente}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                placeholder="Nombre del cliente" 
-                value={nombre} 
-                onChange={(e) => setNombre(e.target.value)} 
-            />
-            <input 
-                type="text" 
-                placeholder="Email del cliente" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-            />
-            <input 
-                type="text" 
-                placeholder="Empresa del cliente" 
+            <label>
+                Nombre:
+                <input 
+                    type="text" 
+                    placeholder="Nombre del cliente" 
+                    value={nombre} 
+                    onChange={(e) => setNombre(e.target.value)} 
+                />
+            </label>
+
+            <label>
+                Email:
+                <input 
+                    type="email" 
+                    placeholder="Email del cliente" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                />
+            </label>
+
+            <label>
+                Empresa:
+                <input 
+                    type="text" 
                 value={empresa} 
                 onChange={(e) => setEmpresa(e.target.value)} 
             />
-            <input 
-                type="text" 
-                placeholder="Teléfono del cliente" 
-                value={telefono} 
-                onChange={(e) => setTelefono(e.target.value)} 
-            />
+            </label>
+            <label>
+                Teléfono:
+                <input 
+                    type="tel" 
+                    placeholder="Teléfono del cliente" 
+                    value={telefono} 
+                    onChange={(e) => setTelefono(e.target.value)} 
+                />
+            </label>
             <label>
             <input 
                 type="checkbox" 
-                placeholder="Activo" 
                 checked={activo} 
                 onChange={(e) => setActivo(e.target.checked)}/>
                 Activo</label>

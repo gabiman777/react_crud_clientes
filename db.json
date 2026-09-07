@@ -127,6 +127,24 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "EB1IZLRwjBI"
+    },
+    {
+      "nombre": "gab",
+      "email": "perez@gmail.com",
+      "telefono": "211111111111111111",
+      "empresa": "nbit",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "sStZOm1G4uU"
+    },
+    {
+      "nombre": "989",
+      "email": "089@gmail.com",
+      "telefono": "19291291",
+      "empresa": "l,swdlwkdlw",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "dYAQFgIjeQY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

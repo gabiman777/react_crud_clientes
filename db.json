@@ -39,26 +39,17 @@
     {
       "nombre": "Gabriel",
       "email": "gabperez.exito@gmail.com",
-      "telefono": "",
+      "telefono": "+198202020202",
       "empresa": "Opinator",
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "n36UYU0mLvQ"
     },
     {
-      "nombre": "12345",
-      "email": "12345@gmail.com",
-      "telefono": "12345",
-      "empresa": "12345",
-      "activo": true,
-      "fechaAlta": "2026-09-07",
-      "id": "bJOMhf7r6XQ"
-    },
-    {
       "nombre": "777",
-      "email": "",
+      "email": "naguarabit@gmail.com",
       "telefono": "009099999",
-      "empresa": "NAguarabit",
+      "empresa": "Naguarabit",
       "activo": true,
       "": "l",
       "fechaAlta": "2026-09-07",
@@ -84,9 +75,9 @@
     },
     {
       "nombre": "Juan Perez",
-      "email": "",
-      "telefono": "",
-      "empresa": "",
+      "email": "jperez@gmail.com",
+      "telefono": "098283358",
+      "empresa": "Naguarabit",
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "4a83EslXjiI"

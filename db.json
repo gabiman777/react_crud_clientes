@@ -62,6 +62,33 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "RPnEECBHILc"
+    },
+    {
+      "nombre": "abc",
+      "email": "abc",
+      "telefono": "abc",
+      "empresa": "abc",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "Kepzvq_WVs4"
+    },
+    {
+      "nombre": "def",
+      "email": "def",
+      "telefono": "def",
+      "empresa": "def",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "huro9TJKQUY"
+    },
+    {
+      "nombre": "ghi",
+      "email": "ghi",
+      "telefono": "ghi",
+      "empresa": "ghi",
+      "activo": false,
+      "fechaAlta": "2026-09-07",
+      "id": "v1Zz_m1Bot4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

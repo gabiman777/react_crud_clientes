@@ -44,6 +44,24 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "n36UYU0mLvQ"
+    },
+    {
+      "nombre": "xyz",
+      "email": "abc",
+      "telefono": "",
+      "empresa": "ABC",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "t2iMwyeid64"
+    },
+    {
+      "nombre": "123",
+      "email": "123",
+      "telefono": "",
+      "empresa": "123",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "RPnEECBHILc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

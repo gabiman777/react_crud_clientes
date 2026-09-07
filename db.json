@@ -89,6 +89,15 @@
       "activo": false,
       "fechaAlta": "2026-09-07",
       "id": "v1Zz_m1Bot4"
+    },
+    {
+      "nombre": "12345",
+      "email": "12345@gmail.com",
+      "telefono": "12345",
+      "empresa": "12345",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "bJOMhf7r6XQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

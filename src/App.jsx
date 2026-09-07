@@ -3,8 +3,9 @@ import ClienteForm from './components/ClienteForm.jsx'
 import ClienteList from './components/ClienteList.jsx'
 import './App.css'
 
-const API = 'http://localhost:3001/clientes'
-
+//API deployed json-server local OR deployed in Render.com
+// base de la API: variable de entorno en producción, Render por defecto
+const API = `${import.meta.env.VITE_API_URL ?? 'https://react-crud-clientes-5kq3.onrender.com'}/clientes`
 
 function App() {
 

@@ -19,6 +19,8 @@ Deberías ver:
   http://localhost:3001/clientes
 
 Terminal 2 (frontend):
+npm install
+npm run build
 npm run dev
 
 Probar la API en el navegador

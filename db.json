@@ -29,7 +29,7 @@
     },
     {
       "nombre": "Diana",
-      "email": "diana@gmail.com",
+      "email": "dianatorales114@gmail.com",
       "telefono": "0974299000",
       "empresa": "LITL",
       "activo": true,
@@ -65,15 +65,6 @@
       "id": "EB1IZLRwjBI"
     },
     {
-      "nombre": "gab",
-      "email": "gabperez.exito@gmail.com",
-      "telefono": "211111111111111111",
-      "empresa": "nbit",
-      "activo": true,
-      "fechaAlta": "2026-09-07",
-      "id": "sStZOm1G4uU"
-    },
-    {
       "nombre": "Juan Perez",
       "email": "jperez@gmail.com",
       "telefono": "098283358",
@@ -99,6 +90,15 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "0PYthelLs44"
+    },
+    {
+      "nombre": "prueba",
+      "email": "ggg@gmail.com",
+      "telefono": "",
+      "empresa": "",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "GyElQl6ZBpg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

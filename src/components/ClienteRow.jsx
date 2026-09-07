@@ -1,5 +1,5 @@
-//← recibe: cliente, onBorrarCliente, que es una función que se ejecutará cuando se borre un cliente 
-function ClienteRow({ cliente, onBorrarCliente }) {
+//← recibe: cliente, onBorrarCliente, onEditarCliente, que son funciones que se ejecutarán cuando se realicen las respectivas acciones
+function ClienteRow({ cliente, onBorrarCliente, onEditarCliente }) {
     return (
         <tr>
             <td>{cliente.nombre}</td>
@@ -8,6 +8,7 @@ function ClienteRow({ cliente, onBorrarCliente }) {
             <td>{cliente.empresa}</td>
             <td>{cliente.activo ? 'Sí' : 'No'}</td>
             <td>
+                <button onClick={() => onEditarCliente(cliente)}>Editar</button>
                 <button onClick={() => onBorrarCliente(cliente.id)}>Borrar</button>
             </td>
         </tr>

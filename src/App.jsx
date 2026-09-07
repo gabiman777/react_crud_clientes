@@ -10,10 +10,11 @@ function App() {
   const [clientes, setClientes] = useState([]) //starts with client's list empty
   const [loading, setLoading] = useState(true) //start with loading in true: al montar ya estás cargando
   const [error, setError] = useState(null) //start with no error
+  const [clienteEditando, setClienteEditando] = useState(null) //object client in edition
 
-
+  //creates a new client
   async function handleCrearCliente(nuevoCliente) {
-    //v1. new client's id is generated random mode by browser as an uuid 
+    //v1. in memory: new client's id is added, with id generated random mode by browser (as an uuid) 
     //setClientes([...clientes, {...nuevoCliente, id: crypto.randomUUID()}])
 
     //v2. create client POST method using json-server API, ya no usamos solo memoria
@@ -38,6 +39,26 @@ function App() {
 
   function handleBorrarCliente(id) {
     setClientes(clientes.filter(c => c.id !== id))
+  }
+
+  //update a client
+  async function handleGuardarCliente(clienteEditado) {
+    try {
+      const res = await fetch(`${API}/${clienteEditado.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(clienteEditado),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}: no se pudo guardar`)
+      const actualizado = await res.json()
+      // reemplazar ese cliente en la lista, sin mutar:
+      setClientes((prev) =>
+        prev.map((c) => (c.id === actualizado.id ? actualizado : c))
+      )
+      setClienteEditando(null)   // salir del modo edición
+    } catch (e) {
+      setError(e.message)
+    }
   }
 
   useEffect(() => {
@@ -83,11 +104,21 @@ function App() {
   return (
     <>
       <h1>Clientes</h1>
-      <ClienteForm onCrearCliente={handleCrearCliente} />
+      
+      <ClienteForm
+        onCrearCliente={handleCrearCliente} 
+        onGuardarCliente={handleGuardarCliente} // ← handleGuardarCliente (App)  →  onGuardarCliente 
+        clienteInicial={clienteEditando}
+        onCancelar={() => setClienteEditando(null)}
+        key={clienteEditando ? clienteEditando.id : 'nuevo'}
+      />
 
       {loading && <p>Cargando...</p>}
       {error && <p style={{ color: 'crimson'}}>Error: {error}</p>}
-      {!loading && !error && <ClienteList clientes={clientes} onBorrarCliente={handleBorrarCliente} />}
+
+      {!loading && !error && 
+        (<ClienteList clientes={clientes} onBorrarCliente={handleBorrarCliente} onEditarCliente={setClienteEditando} />)
+      }
     </>
   )
 }

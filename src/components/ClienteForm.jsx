@@ -1,9 +1,13 @@
 import {useState} from 'react'
 
 //← recibe: onCrear Cliente, que es una función que se ejecutará cuando se cree un nuevo cliente
-function ClienteForm({onCrearCliente}) {
+function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCancelar }) {
+    
     const ESTADO_INICIAL = { nombre: '', email: '', telefono: '', empresa: '', activo: true }
-    const [formData, setFormData] = useState(ESTADO_INICIAL)
+    
+    const [formData, setFormData] = useState(clienteInicial ?? ESTADO_INICIAL)
+
+    const modoEdicion = Boolean(clienteInicial) // true si clienteInicial es un objeto, false si es null
     
     //handle change in form
     function handleChange(e) {
@@ -15,10 +19,17 @@ function ClienteForm({onCrearCliente}) {
     }
 
     function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault() //avoids browser reloads page
+        
         if (formData.nombre.trim() === '') { alert('El nombre es obligatorio'); return }
-        onCrearCliente({ ...formData, fechaAlta: new Date().toISOString().slice(0, 10) })
-        setFormData(ESTADO_INICIAL)   // reset form's fields
+
+        if (modoEdicion){
+            onGuardarCliente(formData)   // formData ya trae id y fechaAlta de clienteInicial
+        }
+        else{
+            onCrearCliente({ ...formData, fechaAlta: new Date().toISOString().slice(0, 10) })
+            setFormData(ESTADO_INICIAL)   // reset form's fields to a new client
+        }
     }
 
 
@@ -26,7 +37,7 @@ function ClienteForm({onCrearCliente}) {
         <form onSubmit={handleSubmit}>
             <label>
                 Nombre:
-                <input name="nombre"   placeholder="Nombre"   value={formData.nombre}   onChange={handleChange} />
+                <input name="nombre" placeholder="Nombre"   value={formData.nombre}   onChange={handleChange} />
             </label>
 
             <label>
@@ -67,7 +78,8 @@ function ClienteForm({onCrearCliente}) {
                 checked={formData.activo} 
                 onChange={handleChange}/>
                 Activo</label>
-            <button type="submit">Crear Cliente</button>
+            <button type="submit">{modoEdicion ? 'Guardar cambios' : 'Crear Cliente'}</button>
+            {modoEdicion && <button type="button" onClick={onCancelar}>Cancelar</button>}
         </form>
     )
 

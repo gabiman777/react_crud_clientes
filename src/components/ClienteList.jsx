@@ -1,7 +1,7 @@
 import ClienteRow from './ClienteRow.jsx'
 
-//← recibe: clientes, onBorrarCliente, que es una función que se ejecutará cuando se borre un cliente
-function ClienteList({ clientes, onBorrarCliente }) {
+//← recibe: clientes, onBorrarCliente, onEditarCliente, funciones que se ejecutarán al borrar/editar un cliente
+function ClienteList({ clientes, onBorrarCliente, onEditarCliente }) {
 
     if (clientes.length === 0) {
         return <p>No hay clientes registrados.</p>
@@ -21,7 +21,7 @@ function ClienteList({ clientes, onBorrarCliente }) {
             </thead>
             <tbody>
                 {clientes.map(cliente => (
-                    <ClienteRow key={cliente.id} cliente={cliente} onBorrarCliente={onBorrarCliente} />
+                    <ClienteRow key={cliente.id} cliente={cliente} onBorrarCliente={onBorrarCliente} onEditarCliente={onEditarCliente} />
                 ))}
             </tbody>
         </table>

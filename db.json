@@ -99,6 +99,15 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "GyElQl6ZBpg"
+    },
+    {
+      "nombre": "Dario Cáceres",
+      "email": "dario@gmail.com",
+      "telefono": "",
+      "empresa": "Cybira",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "BMwgHi8DFjM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -42,7 +42,8 @@ function App() {
     try {
       const res = await fetch(`${API}/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error(`HTTP ${res.status}: no se pudo borrar el cliente`)
-      setClientes((cli) => cli.filter((c) => c.id !== id))
+      setClientes((prev) => prev.filter((c) => c.id !== id))
+      if (clienteEditando?.id === id) setClienteEditando(null) // if the client being edited is deleted, exit edit mode
     }
     catch(e){
       setError(e.message)

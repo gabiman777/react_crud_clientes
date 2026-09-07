@@ -22,8 +22,9 @@ function ClienteList({ clientes, onBorrarCliente, onEditarCliente }) {
             <tbody>
                 {clientes.map(cliente => (
                     <ClienteRow key={cliente.id} cliente={cliente}
+                    onEditarCliente ={onEditarCliente}
                     onBorrarCliente={onBorrarCliente}
-                    onEditarCliente ={onEditarCliente} />
+                     />
                 ))}
             </tbody>
         </table>

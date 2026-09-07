@@ -15,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true) //start with loading in true: al montar ya estás cargando
   const [error, setError] = useState(null) //start with no error
   const [clienteEditando, setClienteEditando] = useState(null) //object client in edition
+  const [aviso, setAviso] = useState(null) // state to store the message to show in the page
 
   //creates a new client
   async function handleCrearCliente(nuevoCliente) {
@@ -35,6 +36,7 @@ function App() {
       }
       const clienteCreado = await res.json()
       setClientes([...clientes, clienteCreado])
+      setAviso(`Cliente ${clienteCreado.nombre} creado correctamente`) // show message in page
     } catch (error) {
       setError(error.message)
       console.error('Error creating client:', error)
@@ -46,8 +48,17 @@ function App() {
     try {
       const res = await fetch(`${API}/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error(`HTTP ${res.status}: no se pudo borrar el cliente`)
-      setClientes((prev) => prev.filter((c) => c.id !== id))
+      
+      // Para efecto de la fila fantasma de mensaje "Eliminada"
+      // 1. marcamos la fila como borrada (no la quitamos aún)
+      setClientes((prev) => prev.map((c) => (c.id === id ? { ...c, _borrado: true } : c)))
       if (clienteEditando?.id === id) setClienteEditando(null) // if the client being edited is deleted, exit edit mode
+
+      // 2. quitarla de verdad a los 2,5 s
+      setTimeout(() => {
+        setClientes((prev) => prev.filter((c) => c.id !== id))
+      }, 2500)
+
     }
     catch(e){
       setError(e.message)
@@ -69,6 +80,7 @@ function App() {
         prev.map((c) => (c.id === actualizado.id ? actualizado : c))
       )
       setClienteEditando(null)   // salir del modo edición
+      setAviso(`Cliente ${actualizado.nombre} actualizado correctamente`) // show message in page
     } catch (e) {
       setError(e.message)
     }
@@ -115,6 +127,14 @@ function App() {
       fetchClientes()
   }, []); // Empty dependency array means this runs once on mount
 
+  //hide aviso automatically after 3 seconds
+  useEffect(() => {
+    if (!aviso) return
+    const id = setTimeout(() => setAviso(null), 3000) // clear the message after 3 seconds
+    return () => clearTimeout(id) // cleanup if aviso changes before timeout
+  }, [aviso])
+    
+
   return (
     <>
       <h1>Clientes</h1>
@@ -127,6 +147,7 @@ function App() {
         key={clienteEditando ? clienteEditando.id : 'nuevo'}
       />
 
+      {aviso && <p className="aviso-ok">{aviso}</p>}
       {loading && <p>Cargando...</p>}
       {error && <p style={{ color: 'crimson'}}>Error: {error}</p>}
 

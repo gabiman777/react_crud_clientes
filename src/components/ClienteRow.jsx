@@ -1,6 +1,14 @@
 //← recibe: cliente, onBorrarCliente, onEditarCliente, que son funciones que se ejecutarán cuando se realicen las respectivas acciones
 function ClienteRow({ cliente, onBorrarCliente, onEditarCliente }) {
 
+    if (cliente._borrado) {
+        return (
+            <tr className="fila-borrada">
+                <td colSpan="6">Cliente eliminado</td>
+            </tr>
+        )
+    }
+
     function handleBorrarClick() {
         if (window.confirm(`¿Está seguro de que desea borrar al cliente ${cliente.nombre}?`)) {
             onBorrarCliente(cliente.id)

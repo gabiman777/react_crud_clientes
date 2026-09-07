@@ -6,6 +6,7 @@ function ClienteForm({onCrearCliente}) {
     const[email, setEmail] = useState('')
     const[empresa, setEmpresa] = useState('')
     const[telefono, setTelefono] = useState('')
+    const[activo, setActivo] = useState(true) //by default, new clients are active
 
     function handleSubmit(e) {
         e.preventDefault() //avoids browser reloads page
@@ -16,12 +17,14 @@ function ClienteForm({onCrearCliente}) {
         }
         
         //send new client to parent component: App
-        onCrearCliente({nombre, email, telefono: '', empresa, activo: true, fechaAlta: new Date().toISOString().slice(0, 10)}) 
-        //clean fields/form after new client be created
+        onCrearCliente({nombre, email, telefono, empresa, activo, fechaAlta: new Date().toISOString().slice(0, 10)}) 
+        
+        //reset fields of form after new client be created
         setNombre('') 
         setEmail('')
         setEmpresa('')
         setTelefono('')
+        setActivo(true)
     }
 
     return (
@@ -50,6 +53,13 @@ function ClienteForm({onCrearCliente}) {
                 value={telefono} 
                 onChange={(e) => setTelefono(e.target.value)} 
             />
+            <label>
+            <input 
+                type="checkbox" 
+                placeholder="Activo" 
+                checked={activo} 
+                onChange={(e) => setActivo(e.target.checked)}/>
+                Activo</label>
             <button type="submit">Crear Cliente</button>
         </form>
     )

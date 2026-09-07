@@ -1,5 +1,35 @@
-#React CRUD Clientes
-Crud clientes con datos server json local
+# React CRUD Clientes
+Crud clientes con datos locales simulados con json-server.
+
+- Lista Clientes
+- Agregar un cliente sólo con su nombre
+- Borrar un cliente
+- Usa json-server para simular datos de un API (db.json)
+
+# Cómo ejecutarlo
+
+Arrancar api y frontend  — se necesitan dos terminales:
+
+Terminal 1 (API):
+npm run api
+
+Deberías ver:
+  JSON Server started on PORT :3001
+  Endpoints:
+  http://localhost:3001/clientes
+
+Terminal 2 (frontend):
+npm run dev
+
+Probar la API en el navegador
+
+Abre estas URLs directamente:
+
+URL	--- Qué devuelve
+http://localhost:3001/clientes	--- El array completo
+http://localhost:3001/clientes/1 --- Solo 1 cliente, el de id 1: "Ana" en este caso
+
+Si ves el JSON, la API funciona.
 
 # React + Vite
 

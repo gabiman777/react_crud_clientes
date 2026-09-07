@@ -81,6 +81,24 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "4a83EslXjiI"
+    },
+    {
+      "nombre": "Gabo",
+      "email": "gabperez.exito@gmail.net",
+      "telefono": "98878121212",
+      "empresa": "Nbit",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "SzevsbmGcjY"
+    },
+    {
+      "nombre": "Isidro",
+      "email": "isidro@gmail.com",
+      "telefono": "",
+      "empresa": "",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "0PYthelLs44"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

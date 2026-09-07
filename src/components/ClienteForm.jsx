@@ -9,18 +9,46 @@ function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCance
 
     const modoEdicion = Boolean(clienteInicial) // true si clienteInicial es un objeto, false si es null
     
+    const [errores, setErrores] = useState({}) // object to store validation errors for each field
+
+    function validar(datos){
+        const nuevosErrores = {}
+
+        //field name is required
+        if (formData.nombre.trim() === ''){ 
+            nuevosErrores.nombre = 'El nombre es obligatorio'; 
+        }
+
+        //field email is optional, but if user fills it, it must to have valid format
+        if (datos.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(datos.email)) {
+            nuevosErrores.email = 'El email no tiene un formato válido';
+        }
+
+        return nuevosErrores
+    }
+    
     //handle change in any input of form
     function handleChange(e) {
         const { name, value, type, checked } = e.target
+        
         setFormData((prev) => ({
         ...prev,
         [name]: type === 'checkbox' ? checked : value,   // clave computada
         }))
+
+        setErrores((prev) => ({ ...prev, [name]: '' })) // clear error for the field being edited (limpiar el error del campo al escribir en él)
     }
 
     //handle form's submit
     function handleSubmit(e) {
         e.preventDefault() //avoids browser reloads page
+        
+        const nuevosErrores = validar(formData)
+        if (Object.keys(nuevosErrores).length > 0) {
+            setErrores(nuevosErrores)
+            return
+        }
+        setErrores({}) // clear previous errors if any
         
         if (formData.nombre.trim() === '') { alert('El nombre es obligatorio'); return }
 
@@ -40,6 +68,7 @@ function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCance
                 Nombre:
                 <input name="nombre" placeholder="Nombre"   value={formData.nombre}   onChange={handleChange} />
             </label>
+            {errores.nombre && <p className="error-campo">{errores.nombre}</p>}
 
             <label>
                 Email:
@@ -51,6 +80,7 @@ function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCance
                     onChange={handleChange} 
                 />
             </label>
+            {errores.email && <p className="error-campo">{errores.email}</p>}
 
             <label>
                 Empresa:

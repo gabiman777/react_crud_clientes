@@ -182,3 +182,9 @@
     border-right-color: var(--border);
   }
 }
+
+.error-campo {
+  color: crimson;
+  font-size: 0.85em;
+  margin: 2px 0 8px;
+}

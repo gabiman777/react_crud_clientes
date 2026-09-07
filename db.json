@@ -98,6 +98,35 @@
       "activo": true,
       "fechaAlta": "2026-09-07",
       "id": "bJOMhf7r6XQ"
+    },
+    {
+      "nombre": "890",
+      "email": "",
+      "telefono": "890",
+      "empresa": "890",
+      "activo": true,
+      "": "0",
+      "fechaAlta": "2026-09-07",
+      "id": "AkGahTdixPI"
+    },
+    {
+      "nombre": "777",
+      "email": "",
+      "telefono": "009099999",
+      "empresa": "NAguarabit",
+      "activo": true,
+      "": "l",
+      "fechaAlta": "2026-09-07",
+      "id": "70ncUYpv5iQ"
+    },
+    {
+      "nombre": "GABRIEL PEREZ",
+      "email": "gabperez.sat@gmail.com",
+      "telefono": "0982288648",
+      "empresa": "Naguarabit",
+      "activo": true,
+      "fechaAlta": "2026-09-07",
+      "id": "EB1IZLRwjBI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -9,7 +9,7 @@ function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCance
 
     const modoEdicion = Boolean(clienteInicial) // true si clienteInicial es un objeto, false si es null
     
-    //handle change in form
+    //handle change in any input of form
     function handleChange(e) {
         const { name, value, type, checked } = e.target
         setFormData((prev) => ({
@@ -18,6 +18,7 @@ function ClienteForm({ clienteInicial, onCrearCliente, onGuardarCliente, onCance
         }))
     }
 
+    //handle form's submit
     function handleSubmit(e) {
         e.preventDefault() //avoids browser reloads page
         

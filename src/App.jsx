@@ -12,9 +12,28 @@ function App() {
   const [error, setError] = useState(null) //start with no error
 
 
-  function handleCrearCliente(nuevoCliente) {
-    //new client's id is generated random mode by browser as an uuid 
-    setClientes([...clientes, {...nuevoCliente, id: crypto.randomUUID()}])
+  async function handleCrearCliente(nuevoCliente) {
+    //v1. new client's id is generated random mode by browser as an uuid 
+    //setClientes([...clientes, {...nuevoCliente, id: crypto.randomUUID()}])
+
+    //v2. create client POST method using json-server API, ya no usamos solo memoria
+    try{
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoCliente)
+      })
+      if (!res.ok) {
+        throw new Error(`HTTP error: ${res.status}. No se pudo crear el cliente`)
+      }
+      const clienteCreado = await res.json()
+      setClientes([...clientes, clienteCreado])
+    } catch (error) {
+      setError(error.message)
+      console.error('Error creating client:', error)
+    }
   }
 
   function handleBorrarCliente(id) {

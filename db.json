@@ -17,6 +17,16 @@
       "empresa": "Globex",
       "activo": false,
       "fechaAlta": "2026-09-03"
+    },
+    {
+      "id": "3",
+      "nombre": "Gabriel Pérez",
+      "email": "gabperez.exito@gmail.com",
+      "telefono": "0982-833-358",
+      "empresa": "FID Seguros",
+      "activo": true,
+      "fechaAlta": "2026-09-07"
     }
+    
   ]
 }

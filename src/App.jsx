@@ -20,10 +20,20 @@ function App() {
 
   useEffect(() => {
     // Fetch the list of clients from the API when the component mounts
+    /*v1. forma directa, sin otra funcion
     fetch(API)
       .then(response => response.json())
       .then(data => setClientes(data))
       .catch(error => console.error('Error fetching clients:', error));
+    */
+
+    //v2. con function sin loading ni error
+    async function fetchClientes() {
+      const res = await fetch(API)
+      const data = await res.json()
+      setClientes(data)
+    }
+    fetchClientes()
   }, []); // Empty dependency array means this runs once on mount
 
   return (

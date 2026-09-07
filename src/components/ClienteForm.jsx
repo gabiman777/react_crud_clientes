@@ -5,6 +5,7 @@ function ClienteForm({onCrearCliente}) {
     const[nombre, setNombre] = useState('')
     const[email, setEmail] = useState('')
     const[empresa, setEmpresa] = useState('')
+    const[telefono, setTelefono] = useState('')
 
     function handleSubmit(e) {
         e.preventDefault() //avoids browser reloads page
@@ -20,6 +21,7 @@ function ClienteForm({onCrearCliente}) {
         setNombre('') 
         setEmail('')
         setEmpresa('')
+        setTelefono('')
     }
 
     return (
@@ -41,6 +43,12 @@ function ClienteForm({onCrearCliente}) {
                 placeholder="Empresa del cliente" 
                 value={empresa} 
                 onChange={(e) => setEmpresa(e.target.value)} 
+            />
+            <input 
+                type="text" 
+                placeholder="Teléfono del cliente" 
+                value={telefono} 
+                onChange={(e) => setTelefono(e.target.value)} 
             />
             <button type="submit">Crear Cliente</button>
         </form>

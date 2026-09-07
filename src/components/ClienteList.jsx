@@ -13,6 +13,7 @@ function ClienteList({ clientes, onBorrarCliente }) {
                 <tr>
                     <th>Nombre</th>
                     <th>Email</th>
+                    <th>Teléfono</th>
                     <th>Empresa</th>
                     <th>Activo</th>
                     <th>Acciones</th>

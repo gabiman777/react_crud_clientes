@@ -4,6 +4,7 @@ function ClienteRow({ cliente, onBorrarCliente }) {
         <tr>
             <td>{cliente.nombre}</td>
             <td>{cliente.email}</td>
+            <td>{cliente.telefono}</td>
             <td>{cliente.empresa}</td>
             <td>{cliente.activo ? 'Sí' : 'No'}</td>
             <td>

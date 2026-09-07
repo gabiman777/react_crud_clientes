@@ -7,7 +7,10 @@ const API = 'http://localhost:3001/clientes'
 
 function App() {
 
-  const [clientes, setClientes] = useState([]) //arranca con lista de clientes vacía
+  const [clientes, setClientes] = useState([]) //starts with client's list empty
+  const [loading, setLoading] = useState(true) //start with loading in true: al montar ya estás cargando
+  const [error, setError] = useState(null) //start with no error
+
 
   function handleCrearCliente(nuevoCliente) {
     //new client's id is generated random mode by browser as an uuid 
@@ -27,6 +30,7 @@ function App() {
       .catch(error => console.error('Error fetching clients:', error));
     */
 
+      /*
     //v2. con function sin loading ni error
     async function fetchClientes() {
       const res = await fetch(API)
@@ -34,13 +38,37 @@ function App() {
       setClientes(data)
     }
     fetchClientes()
+    */
+
+    //v3. con function y loading y error
+      async function fetchClientes() {
+        setLoading(true)
+        setError(null)
+        try {
+          const res = await fetch(API)
+          if (!res.ok) {
+            throw new Error(`HTTP error: ${res.status}. No se pudieron cargar los datos`)
+          }
+          const data = await res.json()
+          setClientes(data)
+        } catch (error) {
+          setError(error.message)
+        } finally {
+          setLoading(false) //no matter what happens, we stop loading
+        }
+      }
+
+      fetchClientes()
   }, []); // Empty dependency array means this runs once on mount
 
   return (
     <>
       <h1>Clientes</h1>
       <ClienteForm onCrearCliente={handleCrearCliente} />
-      <ClienteList clientes={clientes} onBorrarCliente={handleBorrarCliente} />
+
+      {loading && <p>Cargando...</p>}
+      {error && <p style={{ color: 'crimson'}}>Error: {error}</p>}
+      {!loading && !error && <ClienteList clientes={clientes} onBorrarCliente={handleBorrarCliente} />}
     </>
   )
 }

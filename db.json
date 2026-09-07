@@ -4,8 +4,8 @@
       "id": "1",
       "nombre": "Ana López",
       "email": "ana@acme.com",
-      "telefono": "0981-111-222",
-      "empresa": "ACME",
+      "telefono": "0981-111-333",
+      "empresa": "ACME1",
       "activo": true,
       "fechaAlta": "2026-09-01"
     },
@@ -30,7 +30,7 @@
     {
       "nombre": "Diana",
       "email": "diana@gmail.com",
-      "telefono": "",
+      "telefono": "0974299000",
       "empresa": "LITL",
       "activo": true,
       "fechaAlta": "2026-09-07",
